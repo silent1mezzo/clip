@@ -1,13 +1,8 @@
-#!/usr/bin/env python
-# coding: utf-8
 import sys
 import os
 import re
-from itertools import imap
-from storage import JsonStorage
+from clip.storage import JsonStorage
 from subprocess import call
-
-from urllib import urlopen
 
 regex = re.compile(
         r'^(?:http|ftp)s?://'  # http:// or https://
@@ -117,14 +112,3 @@ clip display <list> <name>      # Display an item without copying it to clipboar
 
     print help_text
     sys.exit()
-
-
-def main(args):
-    command = args.pop(0) if len(args) > 0 else help()
-    major = args.pop(0) if len(args) > 0 else None
-    minor = ' '.join(args)
-
-    execute(command, major, minor)
-
-if __name__ == "__main__":
-    main(sys.argv[1:])

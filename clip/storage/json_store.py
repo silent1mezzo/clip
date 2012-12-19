@@ -1,4 +1,4 @@
-from storage.base import BaseStorage
+from clip.storage.base import BaseStorage
 import json
 import os
 

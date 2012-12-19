@@ -31,7 +31,8 @@ setup(
     license=open("LICENSE.rst").read(),
     install_requires=requires,
     packages=packages,
-    scripts=['clip/clip.py'],
+    package_dir={'clip': 'clip'},
+    scripts=['clip/bin/clip'],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: End Users/Desktop',

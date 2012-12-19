@@ -1,1 +1,1 @@
-from json_store import JsonStorage
+from .json_store import JsonStorage

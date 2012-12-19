@@ -1,0 +1,15 @@
+#!/usr/bin/env python
+# coding: utf-8
+import sys
+from clip.core import execute, help
+
+
+def main(args):
+    command = args.pop(0) if len(args) > 0 else help()
+    major = args.pop(0) if len(args) > 0 else None
+    minor = ' '.join(args)
+
+    execute(command, major, minor)
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
