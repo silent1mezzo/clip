@@ -13,8 +13,8 @@ if sys.argv[-1] == 'publish':
     sys.exit()
 
 packages = [
-    'requests',
-    'requests.storage'
+    'clip',
+    'clip.storage'
 ]
 
 requires = []
@@ -34,14 +34,13 @@ setup(
     scripts=['clip/clip.py'],
     classifiers=[
         'Development Status :: 3 - Alpha',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
-        'Operating System :: OS Independent',
+        'Intended Audience :: End Users/Desktop',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: MacOS',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Natural Language :: English',
-        'Topic :: Communications :: Chat :: Internet Relay Chat',
-        'Topic :: Software Development :: Libraries :: Application Frameworks',
+        'Topic :: Desktop Environment',
    ],
 )
