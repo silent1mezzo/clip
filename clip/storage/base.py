@@ -20,7 +20,7 @@ class BaseStorage(object):
             value = "Created %s list" % list
 
         if value and name:
-            self.values[list][name] = value
+            value = self.values[list][name] = value
 
         self.save()
         return [value, ]
