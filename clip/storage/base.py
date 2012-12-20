@@ -26,7 +26,21 @@ class BaseStorage(object):
         return [value, ]
 
     def delete(self, list, name):
-        print 'Deleting key'
+        if name:
+            if self.values.get(list):
+                try:
+                    del self.values[list][name]
+                    print "Deleted '%s' from list '%s'" % (name, list)
+                except KeyError:
+                    print "'%s' doesn't exist in list '%s'" % (name, list)
+        else:
+            try:
+                del self.values[list]
+                print "Deleted list '%s'" % list
+            except KeyError:
+                print "'%s' list doesn't exist" % list
+
+        self.save()
 
     def get(self, list, name=None):
         value = []
