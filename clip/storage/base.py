@@ -23,7 +23,7 @@ class BaseStorage(object):
             self.values[list][name] = value
 
         self.save()
-        return value
+        return [value, ]
 
     def delete(self, list, name):
         print 'Deleting key'
