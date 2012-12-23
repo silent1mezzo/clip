@@ -85,7 +85,7 @@ def execute(command, major, minor):
         outf.write(value)
         outf.close()
 
-        print "'%s' has been copying to your clipboard" % value
+        print "'%s' has been copied to your clipboard" % value
     elif value:
         print value
 
