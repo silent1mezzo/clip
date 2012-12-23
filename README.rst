@@ -62,13 +62,13 @@ Getting a snippet:
 
 ``$ clip websites django1.5``
 
-``'https://docs.djangoproject.com/en/dev/releases/1.5/' has been copying to your clipboard``
+``'https://docs.djangoproject.com/en/dev/releases/1.5/' has been copied to your clipboard``
 
 You can also omit the list_name and it’ll try to find the key
 
 ``$ clip django1.5``
 
-``'https://docs.djangoproject.com/en/dev/releases/1.5/' has been copying to your clipboard``
+``'https://docs.djangoproject.com/en/dev/releases/1.5/' has been copied to your clipboard``
 
 Deleting a List/Key
 
