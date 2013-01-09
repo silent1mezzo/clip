@@ -26,7 +26,7 @@ if system.startswith("Darwin"):
     browser_cmd = ["open"]
     clipboard_cmd = ["pbcopy"]
 elif system.startswith("Linux"):
-    browser_cmd = ["sensible-browser"]
+    browser_cmd = ["xdg-open"]
     clipboard_cmd = ["xsel", "-b", "-i"]
     # Or for primary/mousewheel X selection:
     # clipboard_cmd = ["xsel", "-i"]
