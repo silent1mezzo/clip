@@ -17,7 +17,6 @@ class BaseStorage(object):
         # Set the value for a given key
         if not self.values.get(list):
             self.values[list] = {}
-            value = "Created %s list" % list
 
         if value and name:
             value = self.values[list][name] = value
