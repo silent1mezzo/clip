@@ -1,6 +1,12 @@
 CHANGELOG
 ---------
 
+0.2.0 (2012-01-19)
+++++++++++++++++++
+
+* Added Linux Support (`polyphemus <https://github.com/polyphemus>`_)
+* Fixed bug where initial the initial value wasn't being copied correctly (`durden <https://github.com/durden>`_)
+
 0.1.0 (2012-12-20)
 ++++++++++++++++++
 
