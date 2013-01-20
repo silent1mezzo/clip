@@ -1,8 +1,10 @@
 import sys
-import os
 import re
+import platform
+import subprocess
+
 from clip.storage import JsonStorage
-from subprocess import call
+
 
 regex = re.compile(
         r'^(?:http|ftp)s?://'  # http:// or https://
@@ -14,6 +16,25 @@ regex = re.compile(
         r'(?:/?|[/?]\S+)$', re.IGNORECASE)
 
 storage = JsonStorage()
+
+
+browser_cmd = None
+clipboard_cmd = None
+
+system = platform.system()
+if system.startswith("Darwin"):
+    browser_cmd = ["open"]
+    clipboard_cmd = ["pbcopy"]
+elif system.startswith("Linux"):
+    browser_cmd = ["xdg-open"]
+    clipboard_cmd = ["xsel", "-b", "-i"]
+    # Or for primary/mousewheel X selection:
+    # clipboard_cmd = ["xsel", "-i"]
+    # Or with xclip, first clipboard then primary:
+    # clipboard_cmd = ["xclip", "-selection", "clipboard"]
+    # clipboard_cmd = ["xclip"]
+else:
+    sys.exit("Only suppports Linux and Mac OS X.")
 
 
 def get_urls(text):
@@ -58,7 +79,7 @@ def execute(command, major, minor):
         values = [item for sublist in values for item in sublist]
         print values
         for value in values:
-            call(['open', value])
+            subprocess.call(browser_cmd + [value])
     else:
         if minor:
             value = storage.add(command, major, minor)
@@ -81,9 +102,9 @@ def execute(command, major, minor):
             return
 
     if copy and value:
-        outf = os.popen("pbcopy", "w")
-        outf.write(value)
-        outf.close()
+        proc = subprocess.Popen(clipboard_cmd, stdin=subprocess.PIPE)
+        proc.stdin.write(value)
+        proc.stdin.close()
 
         print "'%s' has been copied to your clipboard" % value
     elif value:
